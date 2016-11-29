@@ -54,7 +54,7 @@ input[type=text], select , p.label {
 	font-weight: bold; 
 	outline:none;
 	border-color: transparent;
-	background-color: transparent;
+	background-color: blue;
 	text-align: center;
 	
 	position: relative;
