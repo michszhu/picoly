@@ -29,7 +29,8 @@
 					<button name = "submit"> <i class="fa fa-check"></i> </button>
 					<button name = "skip"> <i class="fa fa-chevron-right"></i>  </button>
 					<button name = "freeans"> <i class="fa fa-eye"></i>  </button>
-					<button name = "website"> <i class="fa fa-rocket"></i>  </button>
+					<button name = "website" onClick = "window.open ('<?=$_SESSION ["context"]?>');"> <i class="fa fa-rocket"></i>  </button>
+
 				</div>
 			</form>
 	</div>
@@ -129,6 +130,8 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
 </script>		
 		
 		
