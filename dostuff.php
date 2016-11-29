@@ -64,11 +64,11 @@ else {
 		unset ($_SESSION['check']);
 	}
 
-	if (isset ($_POST ['website'])){
-		echo '<script type="text/javascript" language="javascript"> 
-		window.open("' . $_SESSION['context'] .'"); 
+	/*if (isset ($_POST ['website'])){
+		echo '<script type="text/javascript" language="javascript">    // fixed to onclick -> no popups 
+		window.open("' . $_SESSION['context'] .'" ); 
 		</script>'; 
-	}
+	}  */
 }
 
 function sheets ($key){
@@ -82,7 +82,7 @@ function sheets ($key){
 
 function dostuff (){
 	$_SESSION ['names'] = name ($_SESSION ['arr']);
-//	var_dump ( $_SESSION ['names']);
+	var_dump ( $_SESSION ['names']);
 //	echo $_SESSION ['names'][0] . " / " . $_SESSION ['names'][1] ;
 
 	$urls = img ($_SESSION ['names'][0], 10);
@@ -109,18 +109,25 @@ function setKey($url){
 
 function name ($arr){
 	$index = rand (0,count ($arr ['Sheet1'])-1);
-	$name = strtolower ($arr ['Sheet1'] [$index]['name']);
-	$names = array (trim ($name));
+	$name = $arr ['Sheet1'] [$index]['name'];
+	$names = array ($name);
 	
-	$alts = strtolower ($arr ['Sheet1'] [$index]['alts']);
+	$alts = $arr ['Sheet1'] [$index]['alts'];
 	if (strpos ($alts , ',') == FALSE)
 		$names [] = $alts;
-	else 
-		while (strpos ($alts, ',') != FALSE){
-			$names [] = trim (substr ($alts, 0, strpos ($alts , ',')));
-			$alts = substr ($alts , strpos ($alts , ',')+1);
-		}
+	else {
+		$pieces = explode (',' , $alts);
+		$names = array_merge ($names, $pieces);
+	}
+	
+	$names = array_map('strtolower', $names);
+	array_walk($names, 'trim_value');
 	return $names; 
+}
+
+function trim_value(&$value) 
+{ 
+    $value = trim($value); 
 }
 
 function getName (){
