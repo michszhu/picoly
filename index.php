@@ -24,11 +24,11 @@ session_start();
 			<form action = "" method = "post" >
 				<input type = "text" name = "textbox" autocomplete = "off" placeholder = 
 						"<?php 
-						if (empty ($_POST ['textbox']))
-							echo 'ANSWER';
-						else if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
+						if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
 							echo getName(); 
-						?>
+						else if (empty ($_POST ['textbox']))
+							echo 'ANSWER';
+						 ?>
 						 ">
 				<div class = "space"> </div>
 				<div class = "nav">
