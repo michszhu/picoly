@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 // setKey ('1Y_4Zi1yQC3yFSqaI9ODL_Cg5rLAuGEhp69l-BC2bHg8');
 
