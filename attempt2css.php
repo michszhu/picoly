@@ -33,7 +33,7 @@ img {
   border: 10px solid #fff;
   border-bottom: 60px solid #fff;
 	box-shadow: 0  8px  <?php echo $dark; ?>;
-    height: 300px;
+    height: 350px;
     width: auto; 
 	align-self:center;
 	justify-content: center;
@@ -60,7 +60,7 @@ input[type=text], select , p.label {
 	position: relative;
 	top: -20%;
 	left: 50%;
-    transform: translate(-50%, +10%); 
+    transform: translate(-50%, +30%); 
 }
 
 p.label{
@@ -161,6 +161,7 @@ p.label{
 	align-content: center;
 	justify-content: center;
 	margin-bottom:5px;
+	height: 25px;
 }
 
 .two p, .three p{
@@ -173,7 +174,7 @@ p.label{
 	margin: 0px 0px;
 }
 
-p.title{
+p.title , .infotitle{
 	color: <?php echo $watermelon; ?>;
 	font-family: "Segoe UI";
 	font-weight: bold;
@@ -184,7 +185,7 @@ p.title{
 
 }
 
-p.subtitle{
+p.subtitle , .infosub{
 	color: <?php echo $green2?>;
 	font-family: "Segoe UI";
 	text-align: center;
@@ -202,7 +203,7 @@ p.subtitle{
 	align-self: center;
 	margin:auto;
 }
-.menu button{
+.menu button , .inputaddon, select{
   display: inline-block;
   padding: 10px 20px;
   font-size: 20px;
@@ -213,6 +214,7 @@ p.subtitle{
   background-color: transparent;
   border: 2px solid <?php echo $watermelon; ?>;
   font-weight: bold;
+ font-family: "Segoe UI";
 }
 
 .menu button:hover{
@@ -221,8 +223,67 @@ p.subtitle{
 }
 
 .space{
-	height: 8vh;
+	height: 10vh;
 }
 
 
+/* The Modal (background) */
+.modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+	align-items: flex-start;
+}
+.infotitle{
+	font-size: 2vw;
+}
+
+.infosub{
+	color: <?php echo $green2; ?>;
+	align-self: flex-start;
+	text-align: left;
+}
+
+.modal input[type=text], select{
+	padding: 0 0;
+	margin: 0;
+	font-size: 10px;
+}
+
+.red{
+	color: <?php echo $watermelon; ?>;
+	font-size: 20px;
+}
+
+/* The Close Button */
+.close{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
 
