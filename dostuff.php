@@ -1,23 +1,32 @@
-<?php
+<?php 
 session_start();
+?>
 
+
+<?php
 
 // setKey ('1Y_4Zi1yQC3yFSqaI9ODL_Cg5rLAuGEhp69l-BC2bHg8');
 
 if (isset ($_POST ['invasives'])){
 //	echo 'done';
 	setKey ( 'https://docs.google.com/spreadsheets/d/1Y_4Zi1yQC3yFSqaI9ODL_Cg5rLAuGEhp69l-BC2bHg8/edit#gid=0');
+	dostuff();
 }
 else if (isset ($_POST ['anat'])){
 	
 }
 else if (isset ($_POST ['microbe'])){
 	setKey ('https://docs.google.com/spreadsheets/d/1yEIn5lkZv-plluXnTBdOWKeH4S2kzX5DxCqIA7cnWgc/edit#gid=0');
+	dostuff();
 }
 else if (isset ($_POST ['rocks'])){
 }
 else if (isset ($_POST ['diy'])){
 }
+
+
+
+
 
 if (!isset ($_SESSION ['count'])){
 	$_SESSION ['count'] = 1; 
@@ -28,10 +37,10 @@ if (!isset ($_SESSION ['count'])){
 else {
 	if (isset ($_POST ['submit'])  ){
 		if (empty ($_POST ['textbox'])){
-			$_SESSION ['check'] = -1;
+			unset ($_SESSION ['check']);
 			$_SESSION ['streak'] = 0;
 		}
-		else if (in_array ($_POST['textbox'], $_SESSION['names'])){
+		else if (in_array ( strtolower ($_POST['textbox']), $_SESSION['names'])){
 			dostuff();
 //			echo "correct";
 			$_SESSION['check'] = 1;
@@ -52,6 +61,7 @@ else {
 		$_SESSION ['show'] = true;
 		// $_SESSION ['names'][0] . " / " . $_SESSION ['names'][1] ;
 		$_SESSION ['streak'] = 0;
+		unset ($_SESSION['check']);
 	}
 
 	if (isset ($_POST ['website'])){
@@ -82,8 +92,11 @@ function dostuff (){
 //	echo $_SESSION ['context'];
 
 	$_SESSION ['show'] = false;
-	$_SESSION ['count'] = 1+ $_SESSION['count'];
-	$_SESSION ['check'] = -1;
+	if (!isset ($_SESSION ['count']))
+		$_SESSION ['count'] = 1;
+	else
+		$_SESSION ['count'] = 1+ $_SESSION['count'];
+	unset ($_SESSION ['check']);
 }
 
 function setKey($url){	
@@ -96,10 +109,10 @@ function setKey($url){
 
 function name ($arr){
 	$index = rand (0,count ($arr ['Sheet1'])-1);
-	$name = $arr ['Sheet1'] [$index]['name'];
+	$name = strtolower ($arr ['Sheet1'] [$index]['name']);
 	$names = array (trim ($name));
 	
-	$alts = $arr ['Sheet1'] [$index]['alts'];
+	$alts = strtolower ($arr ['Sheet1'] [$index]['alts']);
 	if (strpos ($alts , ',') == FALSE)
 		$names [] = $alts;
 	else 
