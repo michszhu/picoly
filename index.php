@@ -24,9 +24,12 @@ session_start();
 			<form action = "" method = "post" >
 				<input type = "text" name = "textbox" autocomplete = "off" placeholder = 
 						"<?php 
-						if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
+						if (empty ($_POST ['textbox']))
+							echo 'ANSWER';
+						else if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
 							echo getName(); 
-						?>">
+						?>
+						 ">
 				<div class = "space"> </div>
 				<div class = "nav">
 					<button name = "submit"> <i class="fa fa-check"></i> </button>
