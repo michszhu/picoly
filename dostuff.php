@@ -27,10 +27,11 @@ else if (isset ($_POST ['diy'])){
 
 
 
-
 if (!isset ($_SESSION ['count'])){
-	$_SESSION ['count'] = 1; 
-	dostuff();
+	if (isset ($_SESSION ['key'])){
+		$_SESSION ['count'] = 1; 
+		dostuff();		
+	}
 //	echo "complete refresh";
 }
 
@@ -65,7 +66,10 @@ else {
 		$_SESSION ['streak'] = 0;
 		unset ($_SESSION['check']);
 	}
-
+	if (!isset ($_POST['freeans']) ) {
+		$_SESSION ['show'] = false;
+	//	unset ($_SESSION['check']);  //???/??
+	}
 	/*if (isset ($_POST ['website'])){
 		echo '<script type="text/javascript" language="javascript">    // fixed to onclick -> no popups 
 		window.open("' . $_SESSION['context'] .'" ); 
