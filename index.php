@@ -29,12 +29,19 @@
 						echo getName(); 
 					else if (empty ($_POST ['textbox'])&&isset ($_SESSION ['key']))
 						echo 'answer here';
+					else if (!isset ($_SESSION ['key']))
+						echo 'pick a category!';
 					?>">
 			<div class = "space"> </div>
 			<div class = "nav">
 				<button name = "submit"> <i class="fa fa-check"></i> </button>
 				<button name = "skip"> <i class="fa fa-chevron-right"></i>  </button>
-				<button name = "freeans"> <i class="fa fa-eye"></i>  </button>
+				<button name = "freeans"> <i class="<?php
+					if (isset ($_SESSION ['show']) && $_SESSION ['show'] == true)
+						echo 'fa fa-eye';
+					else
+						echo 'fa fa-eye-slash';
+					?> " ></i>  </button>
 				<button name = "website" onClick = "window.open ('<?=$_SESSION ["context"]?>');"> <i class="fa fa-rocket"></i>  </button>
 			</div>
 		</form>
