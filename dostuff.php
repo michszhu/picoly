@@ -39,6 +39,7 @@ else {
 		if (empty ($_POST ['textbox'])){
 			unset ($_SESSION ['check']);
 			$_SESSION ['streak'] = 0;
+//			echo "empty";
 		}
 		else if (in_array ( strtolower ($_POST['textbox']), $_SESSION['names'])){
 			dostuff();
@@ -49,6 +50,7 @@ else {
 		else{
 			$_SESSION['check'] = 0;	
 			$_SESSION ['streak'] = 0;	
+//			echo "incorrect";
 		}
 	}
 
@@ -82,7 +84,7 @@ function sheets ($key){
 
 function dostuff (){
 	$_SESSION ['names'] = name ($_SESSION ['arr']);
-	var_dump ( $_SESSION ['names']);
+//	var_dump ( $_SESSION ['names']);
 //	echo $_SESSION ['names'][0] . " / " . $_SESSION ['names'][1] ;
 
 	$urls = img ($_SESSION ['names'][0], 10);
