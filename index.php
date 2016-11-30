@@ -15,24 +15,29 @@
 <div class = "container">
 
 	<div class = "main">
-		<img src="<?=$_SESSION ['img']?>" alt="FAILL" >
-			<form action = "" method = "post" >
-				<input type = "text" name = "textbox" autocomplete = "off" placeholder = 
-						"<?php 
-						if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
-							echo getName(); 
-						else if (empty ($_POST ['textbox']))
-							echo 'answer here';
-						?>">
-				<div class = "space"> </div>
-				<div class = "nav">
-					<button name = "submit"> <i class="fa fa-check"></i> </button>
-					<button name = "skip"> <i class="fa fa-chevron-right"></i>  </button>
-					<button name = "freeans"> <i class="fa fa-eye"></i>  </button>
-					<button name = "website" onClick = "window.open ('<?=$_SESSION ["context"]?>');"> <i class="fa fa-rocket"></i>  </button>
-
-				</div>
-			</form>
+		<img src=
+				"<?php
+				if (isset ($_SESSION ['key']))
+					echo $_SESSION ['img'];
+				else
+					echo 'imgs/loadingfood.gif';
+				?>" onerror = 'imgs/loadingfood.gif' alt="FAILL" >
+		<form action = "" method = "post" >
+			<input type = "text" name = "textbox" autocomplete = "off" placeholder = 
+					"<?php 
+					if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
+						echo getName(); 
+					else if (empty ($_POST ['textbox'])&&isset ($_SESSION ['key']))
+						echo 'answer here';
+					?>">
+			<div class = "space"> </div>
+			<div class = "nav">
+				<button name = "submit"> <i class="fa fa-check"></i> </button>
+				<button name = "skip"> <i class="fa fa-chevron-right"></i>  </button>
+				<button name = "freeans"> <i class="fa fa-eye"></i>  </button>
+				<button name = "website" onClick = "window.open ('<?=$_SESSION ["context"]?>');"> <i class="fa fa-rocket"></i>  </button>
+			</div>
+		</form>
 	</div>
 
 	<div class = "sidebar">
@@ -42,7 +47,7 @@
 					<div class = "mas">	
 						<div class = "two"> <p>  
 							<?php 
-							if ($_SESSION['streak']>2)
+							if (isset ($_SESSION ['streak']) && $_SESSION['streak']>2)
 								echo $_SESSION ['streak'] . "<i class='em em-fire'></i>" ; 
 							?>
 						</p> 
