@@ -91,7 +91,7 @@ function dostuff (){
 //	var_dump ( $_SESSION ['names']);
 //	echo $_SESSION ['names'][0] . " / " . $_SESSION ['names'][1] ;
 
-	$urls = img ($_SESSION ['names'][0], 10);
+	$urls = img ($_SESSION ['names'][0], 20);
 	$_SESSION ['img'] = $urls [0];
 	$_SESSION ['context'] = $urls [1];
 //	echo $_SESSION ['img'];
