@@ -115,10 +115,17 @@ function setKey($url){
 
 function name ($arr){
 	$index = rand (0,count ($arr ['Sheet1'])-1);
-	$name = $arr ['Sheet1'] [$index]['name'];
-	$names = array ($name);
+	$names = array ();
+
+	$name = $arr ['Sheet1'] [$index]['hard'];
+	if (strpos ($name , ',') == FALSE)
+		$names [] = $name;
+	else {
+		$pieces = explode (',' , $name);
+		$names = array_merge ($names, $pieces);
+	}
 	
-	$alts = $arr ['Sheet1'] [$index]['alts'];
+	$alts = $arr ['Sheet1'] [$index]['medium'];
 	if (strpos ($alts , ',') == FALSE)
 		$names [] = $alts;
 	else {
