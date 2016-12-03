@@ -13,7 +13,10 @@
 
 <div class = "container">
 
+	<!-- MAIN  -->
 	<div class = "main">
+	
+		<!-- MAIN IMAGE  -->
 		<img src=
 				"<?php
 				if (isset ($_SESSION ['key']))
@@ -21,74 +24,103 @@
 				else
 					echo 'imgs/loadingfood.gif';
 				?>" onerror = 'imgs/loadingfood.gif' alt="FAILL" >
-		<form action = "" method = "post" >
-			<input type = "text" name = "textbox" autocomplete = "off" placeholder = 
-					"<?php 
-					if (isset ($_SESSION['show']) && $_SESSION ['show']==true) 
-						echo getName(); 
-					else if (empty ($_POST ['textbox'])&&isset ($_SESSION ['key']))
-						echo 'answer here';
-					else if (!isset ($_SESSION ['key']))
-						echo 'pick a category!';
-					?>" <?php if (isset ($_SESSION ['key'])) echo "autofocus"; ?> >
-			<div class = "space"> </div>
-			<div class = "nav">
-				<button name = "submit"> <i class="fa fa-check"></i> </button>
-				<button name = "skip"> <i class="fa fa-chevron-right"></i>  </button>
-				<button name = "freeans"> <i class="<?php
-					if (isset ($_SESSION ['show']) && $_SESSION ['show'] == true)
-						echo 'fa fa-eye';
-					else
-						echo 'fa fa-eye-slash';
-					?> " ></i>  </button>
-				<button name = "website" onClick = "window.open ('<?=$_SESSION ["context"]?>');"> <i class="fa fa-rocket"></i>  </button>
-			</div>
-		</form>
+				
+	<form action = "" method = "post" >
+		<!-- USER'S ANSWER TEXTBOX  -->
+		<input type = "text" name = "textbox" autocomplete = "off" placeholder = 
+				"<?php 
+				if (isset ($_SESSION['show']) && $_SESSION ['show']==true)   // show the correct answer
+					echo getName(); 
+				else if (empty ($_POST ['textbox'])&&isset ($_SESSION ['key']))   // no answer typed 
+					echo 'answer here';
+				else if (!isset ($_SESSION ['key']))  // no set is picked
+					echo 'pick a category!';
+				?>" <?php if (isset ($_SESSION ['key'])) echo "autofocus"; ?> >
+				
+		<div class = "space"> </div>
+		
+		<!-- USER NAVIGATION  -->
+		<div class = "nav">
+			<button name = "submit" style="display: none;" > <i class="fa fa-check"></i> </button>
+			<button name = "skip"> <i class="fa fa-chevron-right"></i>  </button>
+			<button name = "freeans"> <i class="<?php
+				if (isset ($_SESSION ['show']) && $_SESSION ['show'] == true)
+					echo 'fa fa-eye';
+				else
+					echo 'fa fa-eye-slash';
+				?> " ></i>  </button>
+			<button name = "website" onClick = "window.open ('<?=$_SESSION ["context"]?>');"> <i class="fa fa-rocket"></i>  </button>
+			<button name = "github" onClick = "window.open ('https://github.com/michzzzm/picoly');"> <i class="fa fa-github"></i>  </button>
+
+		</div>
+	</form>
+	
 	</div>
 
+	
+	
+	<!-- SIDEBAR  -->
 	<div class = "sidebar">
-			<div class = "space"> </div>
-			<div class = "top">
-				<div class = "topl">
-					<div class = "mas">	
-						<div class = "two"> <p>  
-							<?php 
-							if (isset ($_SESSION ['streak']) && $_SESSION['streak']>2)
-								echo $_SESSION ['streak'] . "<i class='em em-fire'></i>" ; 
-							?>
-						</p> 
-						</div>
-						<div class = "three"> <p> 
-							<?php 
-							if (isset ($_SESSION ['check'])) {
-								if ($_SESSION['check']==1) 
-									echo "<i class='em em-snowman'></i>"; 
-								if ($_SESSION['check']==0) 
-									echo  "<i class='em em-dizzy_face'></i>";
-							}
-							?>  
-						</p>
-						</div>   
+		<div class = "space"> </div>
+		
+		<div class = "top">
+			<div class = "topl">
+				<div class = "mas">	
+				
+					<!-- STREAK  -->
+					<div class = "streak"> <p>  
+						<?php 
+						if (isset ($_SESSION ['streak']) && $_SESSION['streak']>2)
+							echo $_SESSION ['streak'] . "<i class='em em-fire'></i>" ; 
+						?>
+					</p> 
 					</div>
-				</div>
-				<p class = "title"> PICOLY </p>
-				<div class = "topr">
-					<div> <button name = "info" id="myBtn"> <i class="fa fa-question"></i>  </button> </div>
+					
+					<!-- RIGHT OR WRONG EMOJIS  -->
+					<div class = "corr"> <p> 
+						<?php 
+						if (isset ($_SESSION ['check'])) {
+							if ($_SESSION['check']==1) // CORRECT 
+								echo "<i class='em em-snowman'></i>"; 
+							if ($_SESSION['check']==0) //INCORRECT
+								echo  "<i class='em em-dizzy_face'></i>";
+						}
+						?>  
+					</p>
+					</div>   
 				</div>
 			</div>
-			<p class = "subtitle"> v.2016-17 </p>
+			
+			<!-- MAIN TITLE  -->
+			<p class = "title"> PICOLY </p>
+			
+			<!-- INFO  -->
+			<div class = "topr">
+				<div> <button name = "info" id="myBtn"> <i class="fa fa-question"></i>  </button> </div>
+			</div>
+		</div>
+		
+		
+		<!-- SUB TITLE  -->
+		<p class = "subtitle"> v.2016-17 </p>
+		
+		
+		<!-- MENU BUTTONS -->
 		<form action = "" method = "post" >
 			<div class = "menu">
 				<button name = "invasives" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['invasiveskey']) echo 'pressed'; else echo 'button1';?> > invasives  </button>
 				<button name = "anat" class = "button1" > a&p diseases </button>
 				<button name = "microbe" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['microbekey']) echo 'pressed'; else echo 'button1';?> > microbe diseases </button>
-				<button name = "rocks" class = "button1"> rocks </button>
+				<button name = "rocks" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['rockskey']) echo 'pressed'; else echo 'button1';?> > rocks </button>
 				<button name = "more" class = "button1" > + </button>
 			</div>	
 			<div class = "space"> </div>
-
 		</form>
+		
 	</div>
+	
+	
+	
 </div>
 		
 
@@ -107,7 +139,8 @@
 		<br>
 		<br> <b class = red><i class="fa fa-chevron-right"></i></b> skip
 		<br> <b class = red><i class="fa fa-eye"></i></b> show answer
-		<br> <b class = red><i class="fa fa-rocket"></i> </b> opens a website with the species -- but first allow popups!
+		<br> <b class = red><i class="fa fa-rocket"></i> </b> opens a website with the species !
+		<br> <b class = red><i class="fa fa-github"></i> </b> source code
 		<br> <b ><i class='em em-snowman'></i> </b> your answer was correct
 		<br> <b ><i class='em em-dizzy_face'></i> </b> your answer was incorrect
 		<br> <b ><i class='em em-fire'></i> </b> STREAKKK 3+  :))
