@@ -31,7 +31,7 @@
 						echo 'answer here';
 					else if (!isset ($_SESSION ['key']))
 						echo 'pick a category!';
-					?>" <?php if (!isset ($_SESSION ['key'])) echo "autofocus"; ?> >
+					?>" <?php if (isset ($_SESSION ['key'])) echo "autofocus"; ?> >
 			<div class = "space"> </div>
 			<div class = "nav">
 				<button name = "submit"> <i class="fa fa-check"></i> </button>
