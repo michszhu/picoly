@@ -1,12 +1,10 @@
 <?php 
     header("Content-type: text/css; charset: UTF-8");
-
 $watermelon = "#F23E3F";
 $green = "#ced957";
 $green2 = "#B9C34E";
 $dark = "#a9a9a9";
 $light = "#EEF0DB";
-
 ?>
 
 
@@ -203,7 +201,7 @@ p.subtitle , .infosub{
 	align-self: center;
 	margin:auto;
 }
-.menu button , .inputaddon, select{
+.button1 , .inputaddon, select, .pressed{
   display: inline-block;
   padding: 10px 20px;
   font-size: 20px;
@@ -217,11 +215,14 @@ p.subtitle , .infosub{
  font-family: "Segoe UI";
 }
 
-.menu button:hover{
+.button1:hover {
 	background-color: <?php echo $watermelon; ?>;
 	color: <?php echo $green; ?>;
 }
-
+.pressed{
+	background-color: <?php echo $watermelon; ?>;
+	color: <?php echo $green; ?>;
+}
 .space{
 	height: 10vh;
 }
@@ -286,4 +287,3 @@ p.subtitle , .infosub{
     text-decoration: none;
     cursor: pointer;
 }
-
