@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,11 +79,11 @@
 			<p class = "subtitle"> v.2016-17 </p>
 		<form action = "" method = "post" >
 			<div class = "menu">
-				<button name = "invasives"> invasives </button>
-				<button name = "anat"> a&p diseases </button>
-				<button name = "microbe"> microbe diseases </button>
-				<button name = "rocks"> rocks </button>
-				<button name = "more"> + </button>
+				<button name = "invasives" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['invasiveskey']) echo 'pressed'; else echo 'button1';?> > invasives  </button>
+				<button name = "anat" class = "button1" > a&p diseases </button>
+				<button name = "microbe" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['microbekey']) echo 'pressed'; else echo 'button1';?> > microbe diseases </button>
+				<button name = "rocks" class = "button1"> rocks </button>
+				<button name = "more" class = "button1" > + </button>
 			</div>	
 			<div class = "space"> </div>
 
@@ -119,31 +118,24 @@
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
-
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
     modal.style.display = "block";
 }
-
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
 }
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
-
-
 </script>		
 		
 		
