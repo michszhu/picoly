@@ -1,3 +1,3 @@
-# picoly
+# id game
 
 hi
