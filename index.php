@@ -10,9 +10,62 @@
 <body>
 <?php include 'dostuff.php';?>
 
+	<!-- SIDEBAR  -->
+	<div class = "sidebar">
+		
+		
+		<!-- MENU BUTTONS -->
+		<div class = "menu">
+		
+		<form action = "" method = "post" >
+			<p class = "title"> ID GAME </p>
+			<button name = "invasives" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['invasiveskey']) echo 'pressed'; else echo 'button1';?> > invasives  </button>
+			<!--button name = "anat" class = "button1" > a&p diseases </button-->
+			<button name = "microbe" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['microbekey']) echo 'pressed'; else echo 'button1';?> > microbe diseases </button>
+			<button name = "rocks" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['rockskey']) echo 'pressed'; else echo 'button1';?> > rocks </button>
+			<!--button name = "more" class = "button1" > <b>+ </b></button-->
+			<div class = "spacer"> </div> 
+		</form>
+		</div>
+		
+		<div class = "mas">	
+			<!-- STREAK  -->
+			<div class = "streak"> <p>  
+					<?php 
+					if (isset ($_SESSION ['streak']) && $_SESSION['streak']>2)
+						echo $_SESSION ['streak'] . "<i class='em em-fire'></i>" ; 
+					?>
+				</p> 
+			</div>
+				
+			<!-- RIGHT OR WRONG EMOJIS  -->
+			<div class = "corr"> <p> 
+					<?php 
+					if (isset ($_SESSION ['check'])) {
+						if ($_SESSION['check']==1) // CORRECT 
+							echo "<i class='em em-snowman'></i>"; 
+						if ($_SESSION['check']==0) //INCORRECT
+							echo  "<i class='em em-dizzy_face'></i>";
+					}
+					?>  
+				</p>
+			</div>   
+			
+			<!-- INFO  -->
+			<div class = "topr">
+			<div> <button name = "info" id="myBtn" > <i class="fa fa-question"></i>  </button> </div>
+			</div>			
+			
+		</div>
+			
 
-<div class = "container">
+			
 
+	</div>		
+		
+	<div class = "space"> </div> 
+		
+	
 	<!-- MAIN  -->
 	<div class = "main">
 	
@@ -55,69 +108,13 @@
 		</div>
 	</form>
 	
+
+	
 	</div>
 
 	
 	
-	<!-- SIDEBAR  -->
-	<div class = "sidebar">
-		<div class = "space"> </div>
-		
-		<div class = "top">
-			<div class = "topl">
-				<div class = "mas">	
-				
-					<!-- STREAK  -->
-					<div class = "streak"> <p>  
-						<?php 
-						if (isset ($_SESSION ['streak']) && $_SESSION['streak']>2)
-							echo $_SESSION ['streak'] . "<i class='em em-fire'></i>" ; 
-						?>
-					</p> 
-					</div>
-					
-					<!-- RIGHT OR WRONG EMOJIS  -->
-					<div class = "corr"> <p> 
-						<?php 
-						if (isset ($_SESSION ['check'])) {
-							if ($_SESSION['check']==1) // CORRECT 
-								echo "<i class='em em-snowman'></i>"; 
-							if ($_SESSION['check']==0) //INCORRECT
-								echo  "<i class='em em-dizzy_face'></i>";
-						}
-						?>  
-					</p>
-					</div>   
-				</div>
-			</div>
-			
-			<!-- MAIN TITLE  -->
-			<p class = "title"> PICOLY </p>
-			
-			<!-- INFO  -->
-			<div class = "topr">
-				<div> <button name = "info" id="myBtn"> <i class="fa fa-question"></i>  </button> </div>
-			</div>
-		</div>
-		
-		
-		<!-- SUB TITLE  -->
-		<p class = "subtitle"> v.2016-17 </p>
-		
-		
-		<!-- MENU BUTTONS -->
-		<form action = "" method = "post" >
-			<div class = "menu">
-				<button name = "invasives" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['invasiveskey']) echo 'pressed'; else echo 'button1';?> > invasives  </button>
-				<button name = "anat" class = "button1" > a&p diseases </button>
-				<button name = "microbe" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['microbekey']) echo 'pressed'; else echo 'button1';?> > microbe diseases </button>
-				<button name = "rocks" class = <?php if (isset ($_SESSION ['key']) && $_SESSION['key'] == $_SESSION['rockskey']) echo 'pressed'; else echo 'button1';?> > rocks </button>
-				<button name = "more" class = "button1" > + </button>
-			</div>	
-			<div class = "space"> </div>
-		</form>
-		
-	</div>
+
 	
 	
 	
