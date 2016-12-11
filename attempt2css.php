@@ -7,26 +7,25 @@ $dark = "#a9a9a9";
 $light = "#EEF0DB";
 ?>
 
-
+/* EVERYTHING */ 
 body{
 	background-color: <?php echo $light; ?>;
 }
-.container{
-  display: flex;
-  // flex-direction: row;
-}
+
+/* MAIN AREA DOES NOT INCLUDE THE SIDEBAR */ 
 .main{
 //	display: flex;
-	width: 60vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	align-self: center;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
+	flex-direction: row;
 // 	align-content: space-around;
 	flex-wrap: wrap;
 }
 
+/* image and border */ 
 img {
   border: 10px solid #fff;
   border-bottom: 60px solid #fff;
@@ -43,6 +42,7 @@ img {
     transform: translate(-50%, +20%);  
 }
 
+/* user input textbox under the image */ 
 input[type=text], select , p.label {
 	width: 100%;
 	height: 55px;
@@ -60,13 +60,14 @@ input[type=text], select , p.label {
 	left: 50%;
     transform: translate(-50%, +30%); 
 }
-
+/* gray textbox placeholder - EITHER answer here OR WHERE THE NAMES APPEAR */
 p.label{
 	color: <?php echo $dark; ?>;;
 	font-size: 20px;
     transform: translate(-50%, +20%)
 }
 
+/* NAVIGATION BUTTONS E.G. SKIP, SUBMIT, SHOW ANSWER, JET */  
 .nav{
 	height: 50px; 
 	width: auto; 
@@ -91,128 +92,108 @@ p.label{
   background-color: <?php echo $green; ?>;
   border: none;
   box-shadow: 0 9px <?php echo $green2; ?>;
+	transition: all 0.3s ease;
+
 }
 
 .nav button:hover{
   background-color: <?php echo $green2; ?>;
 }
-/* ============================ */
+
+
+/* SIDEBAR */  
 .sidebar{
+	position: absolute;
+	top: 0;
+	left: 0;
+	
 	display: flex;
-	width: 30vw;
-	height: auto;
+	width: 100%;
+	height: 70px;
 	background-color: <?php echo $green; ?>;
-	align-self: center;
-	margin: auto;
-	box-shadow: 0  9px  <?php echo $green2; ?>;
-	flex-direction: column;
-	align-items: center;
-}
-
-
-.top{
-	display: flex;
+	box-shadow: 0  8px  <?php echo $green2; ?>;
 	flex-direction: row;
-	justify-content: space-around;
-	align-content: space-around;
-}
-
-.topl, .topr {
-	display: flex;
-	flex-direction: column;
-	width: 3vw;
-	margin: 0 2vw; 
+	justify-content: space-between; 
 }
 
 .mas {
-	float:right;
 	display: flex;
-	flex-direction: column;
-	align-content: center;
+	flex-direction: row;
 }
 
-.two, .three {
-	display: flex;
-	align-content: center;
-	justify-content: center;
-
+.streak p, .corr p{
+	background-color:transparent;
+	font-size: 17px;
+	color: <?php echo $watermelon; ?>;
+	font-weight: bold;
+	font-family: "Segoe UI";
+	margin: 20px 0 ; 
 }
-
+/* information button*/
 .topr button{
-	padding: 5px 10px;
+	padding: 6px 10px;
 	border-radius: 50%;
 	color:  <?php echo $watermelon; ?>;
-	border: 2px solid  <?php echo $watermelon; ?>;
 	background-color: transparent;
 	font-size: 13px;
-	align-self: flex-start;
-	margin-bottom: 5px;
+	outline: none;
+	border: none; 
+	margin: 20px 10px; 		
 }
 
 .topr button:hover{
 	background-color: <?php echo $watermelon; ?>;
 	color: <?php echo $green; ?>;
 }
+/* TITLES AND SUBTITLES */
 
-.two, .three{
-	display: flex;
-	align-content: center;
-	justify-content: center;
-	margin-bottom:5px;
-	height: 25px;
-}
-
-.two p, .three p{
-	background-color:transparent;
-	font-size: 17px;
-	color: <?php echo $watermelon; ?>;
-	font-weight: bold;
-	font-family: "Segoe UI";
-	text-align:center;
-	margin: 0px 0px;
-}
 
 p.title , .infotitle{
 	color: <?php echo $watermelon; ?>;
 	font-family: "Segoe UI";
-	font-weight: bold;
-	text-align: center;
-	font-size: 5vw;
-	max-height: 5vh;
-	margin: 10vh 0vw;
-
+	font-size: 20px;
+	align-self:center;
+	margin: 20px 20px ; 
 }
 
-p.subtitle , .infosub{
+ .infosub{
 	color: <?php echo $green2?>;
 	font-family: "Segoe UI";
 	text-align: center;
 	font-size: 15px;
 	margin: 5vh 0vw;
 }
-.menu{
-	width: 20vw; 
-	border: 2px solid <?php echo $watermelon; ?>;
 
-	justify-content: center;
-	
-	display: flex;
-	flex-direction: column;
-	align-self: center;
-	margin:auto;
+/* MAIN MENU E.G. INVASIVES, ROCKS ETC */
+
+.menu{
+	height: 70px; 
 }
-.button1 , .inputaddon, select, .pressed{
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 20px;
+
+.button1 , .inputaddon, select, .pressed, .spacer , .title{
+	float: left; 
+	height: 70px; 
+	border: none; 
+  font-size: 15px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   color: <?php echo $watermelon; ?>;
   background-color: transparent;
-  border: 2px solid <?php echo $watermelon; ?>;
-  font-weight: bold;
+  border:  none; // 2px solid <?php echo $watermelon; ?>;
  font-family: "Segoe UI";
+ outline: none;
+ 	font-weight: bold;
+	transition: all 0.3s ease;
+	padding: 0px 20px;
+
+
+}
+
+.title{
+	font-size: 10px; 
+	font-weight: bold; 
+
 }
 
 .button1:hover {
@@ -224,9 +205,12 @@ p.subtitle , .infosub{
 	color: <?php echo $green; ?>;
 }
 .space{
-	height: 10vh;
+	height: 10vh; 
 }
-
+.spacer{
+	width: 10px; 
+	padding: 0 0 ;
+}
 
 /* The Modal (background) */
 .modal{
@@ -257,7 +241,7 @@ p.subtitle , .infosub{
 }
 
 .infosub{
-	color: <?php echo $green2; ?>;
+	color: <?php echo $dark; ?>;
 	align-self: flex-start;
 	text-align: left;
 }
