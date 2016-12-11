@@ -131,7 +131,7 @@
     <p class = "infotitle">INFO</p>
 	<p class = "infosub"> Sets pulled from 
 		<a href= "https://drive.google.com/drive/folders/0B9m30q2Odd2YYnpfX3hTUndLNk0?usp=sharing" target= "_blank"> here </a>
-		<br>An option to add your own sheets may be created if and when I am in the mood to figure it out!<br>
+		<!--br>An option to add your own sheets may be created if and when I am in the mood to figure it out!<br-->
 
 		<br>
 		<br> <b class = red><i class="fa fa-chevron-right"></i></b> skip
