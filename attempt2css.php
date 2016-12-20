@@ -12,7 +12,7 @@ body{
 	background-color: <?php echo $light; ?>;
 }
 
-/* MAIN AREA DOES NOT INCLUDE THE SIDEBAR */ 
+/* MAIN AREA DOES NOT INCLUDE THE TOPBAR */ 
 .main{
 //	display: flex;
 	width: 100%;
@@ -101,8 +101,8 @@ p.label{
 }
 
 
-/* SIDEBAR */  
-.sidebar{
+/* TOPBAR */  
+.topbar{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -119,6 +119,7 @@ p.label{
 .mas {
 	display: flex;
 	flex-direction: row;
+	justify-content: center; 
 }
 
 .streak p, .corr p{
