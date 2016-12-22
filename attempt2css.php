@@ -206,7 +206,7 @@ p.title , .infotitle{
 	color: <?php echo $green; ?>;
 }
 .space{
-	height: 6vh; 
+	height: 3vh; 
 }
 .spacer{
 	width: 10px; 
