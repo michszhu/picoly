@@ -7,6 +7,9 @@ hi
 todo
 
 textbox doesnt work on IE
+
 emojis dont work on safari
+
 hide api keys
+
 gulp
